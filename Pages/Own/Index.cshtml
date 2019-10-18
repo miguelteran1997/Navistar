@@ -1,0 +1,42 @@
+﻿@page
+@model NAVISTAR1.Pages.Own.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Owner[0].ON)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Owner[0].OL)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Owner) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ON)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OL)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.OID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.OID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.OID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
